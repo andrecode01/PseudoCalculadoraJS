@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+	<meta charset="UTF-8">
+  	<meta name="description" content="">
+  	<meta name="keywords" content="">
+  	<meta name="author" content="">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Pseudo Calculadora em JavaScript</title>
+
+	<style>
+
+	body{
+
+		color: white; 
+		text-align: center; 
+		padding-top: 30vh; 
+		background: rgba(0, 0, 150, .75);
+
+	}
+		
+	input[type=text]{
+
+		text-align: center;
+		font-size: 1.2em;
+		color: white;
+		border-radius: 10px;
+		background: rgba(0, 0, 180, .75);
+		width: 100px; 
+
+	}
+
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Pseudo calculadora em <i>JavaScript</i></h1>
+
+	<script>
+
+		var opcao;
+
+		function calcular(opcao){
+			var e1 = parseFloat(document.getElementById("v1").value);
+			var e2 = parseFloat(document.getElementById("v2").value);
+
+			if(opcao == 0)
+			document.getElementById("res").innerHTML = "Resposta da Soma: <em>"+(e1+e2)+"</em>";
+
+			if(opcao == 1)
+			document.getElementById("res").innerHTML = "Resposta da Subtração: <em>"+(e1-e2)+"</em>";
+
+			if(opcao == 2)
+			document.getElementById("res").innerHTML = "Resposta da Multiplicão: <em>"+(e1*e2)+"</em>";
+
+			if(opcao == 3)
+			document.getElementById("res").innerHTML = "Resposta da Divisão: <em>"+(e1/e2)+"</em>";
+
+			if(opcao == 4){
+
+				var exp = e1;
+
+				do{
+
+					e1 *= exp;
+					e2--;
+
+				} while(e2 > 0);
+
+				document.getElementById("res").innerHTML = "Resposta da Exponenciação: <em>"+(e1)+"</em>";
+			}
+
+			if(opcao == 5){
+
+				e1 = e1**(1/e2);
+
+				document.getElementById("res").innerHTML = "Resposta da Radiciação: <em>"+(e1)+"</em>";
+			}	
+
+		}
+		
+	</script>
+
+
+	<input type="text" id="v1"><br>
+	<input type="text" id="v2">
+
+	<p id="res"> Resposta: </p>
+
+	<button type="button" onclick="calcular(0)"><b>+ </b>Somar</button>
+	<button type="button" onclick="calcular(1)"><b>- </b>Subtrair</button>
+	<button type="button" onclick="calcular(2)"><b>* </b>Multiplicar</button>
+	<button type="button" onclick="calcular(3)"><b>/ </b>Dividir</button>
+	<button type="button" onclick="calcular(4)"><b>X¹²³ </b>Exponenciar</button>
+	<button type="button" onclick="calcular(5)"><b>§ </b>Radiciar</button>
+
+</body>
+</html>
